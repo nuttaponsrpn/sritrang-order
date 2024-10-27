@@ -5,9 +5,13 @@ A simple chat web application Nuxt 3 and Vue.js. The chat application should all
 
 > **Bonus**
 >
-> - Upgrade simple chat web application to connecting to ChatGPT
+> - Upgrade simple web chat application connect with ChatGPT
 > - User can select model between Default or ChatGPT
 
+#### Demo
+```bash
+https://sritrang-order.vercel.app/
+```
 
 #### Setup Local
 ```bash
@@ -15,17 +19,16 @@ A simple chat web application Nuxt 3 and Vue.js. The chat application should all
 - pnpm dev
 ```
 
-```bash
-- For using ChatGPT Model in Local
-- Create .env.local with environment below
 
+For using ChatGPT Model in Local. Create .env.local with environment below
+```bash
 OPENAI_API_KEY=<Your Open API Key>
 PROJECT_ID=<Your Project ID>
 GPT_MODEL=<Chat GPT Model>
 ```
 
 ```bash
-For more detail about ChatGPT
+For more information about ChatGPT
 https://platform.openai.com/docs/api-reference/authentication
 ```
 
