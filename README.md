@@ -10,17 +10,22 @@ A simple chat web application Nuxt 3 and Vue.js. The chat application should all
 
 
 #### Setup Local
+```bash
 - pnpm install
 - pnpm dev
+```
+
+```bash
 - For using ChatGPT Model in Local
 - Create .env.local with environment below
-```bash
+
 OPENAI_API_KEY=<Your Open API Key>
 PROJECT_ID=<Your Project ID>
 GPT_MODEL=<Chat GPT Model>
 ```
-- For more detail about ChatGPT
+
 ```bash
+For more detail about ChatGPT
 https://platform.openai.com/docs/api-reference/authentication
 ```
 
@@ -34,7 +39,8 @@ https://platform.openai.com/docs/api-reference/authentication
 #### Tech stack
 - Nuxt@3.13.2 - https://nuxt.com/
 ```bash
-Nuxt is an open source framework that makes web development intuitive and powerful
+Nuxt is an open source framework that makes 
+web development intuitive and powerful
 ```
 - Vue@3.5.12 - https://vuejs.org/
 ```bash
@@ -44,15 +50,19 @@ An approachable, performant and versatile framework for building web user interf
 ```
 - Tailwindcss@3.4.14 - https://tailwindcss.com/
 ```bash
-A utility-first CSS framework packed with classes that can be composed to build any design, directly in your markup
+A utility-first CSS framework packed with classes 
+that can be composed to build any design, 
+directly in your markup
 ```
 - Vuetify@3.7.3 - https://vuetifyjs.com/en/
 ```bash
-Vuetify is a no design skills required Open Source UI Library with beautifully handcrafted Vue Components
+Vuetify is a no design skills required 
+Open Source UI Library with beautifully 
+handcrafted Vue Components
 ```
 - Vitest@2.1.3 - Testing library - https://vitest.dev/
 ```bash
 Next Generation Testing Framework
 ```
 
-> Contact ME@ email: nuttapon.srpn@gmail.com
+#### Contact ME@ email: nuttapon.srpn@gmail.com
