@@ -13,8 +13,14 @@ A simple chat web application Nuxt 3 and Vue.js. The chat application should all
 https://sritrang-order.vercel.app/
 ```
 
+### Minimum required version
+```bash
+- Node.js 18.x
+```
+
 #### Setup Local
 ```bash
+- git clone https://github.com/nuttaponsrpn/sritrang-order.git
 - pnpm install
 - pnpm dev
 ```
