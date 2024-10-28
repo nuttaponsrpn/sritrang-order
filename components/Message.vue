@@ -2,7 +2,7 @@
   <div
     v-focus
     :class="{
-      'self-end bg-blue-500 text-white': isCurrentUser,
+      'self-end bg-chat-message text-white': isCurrentUser,
       'self-start bg-gray-300 text-black': !isCurrentUser,
     }"
     class="max-w-xs p-3 mb-2 rounded-lg"

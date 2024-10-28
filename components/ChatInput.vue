@@ -1,5 +1,5 @@
 <template>
-  <form class="flex p-2 bg-white border-t">
+  <div class="flex p-2 bg-white border-t">
     <v-select
       label="Model"
       name="chatModel"
@@ -25,9 +25,9 @@
     />
     <v-btn
       elevation="0"
-      variant="tonal"
-      class="!h-full px-4 py-2 rounded-md text-white"
-      :class="isLoading ? '!bg-gray-600 ' : '!bg-blue-500'"
+      variant="flat"
+      class="!h-full px-4 py-2 rounded-md !text-white"
+      :class="isLoading ? '!bg-gray-600 ' : '!bg-chat-message'"
       :disabled="isLoading"
       :loading="isLoading"
       @click="sendMessage"
@@ -37,7 +37,7 @@
     <v-snackbar v-model="errorMessage.error" color="error" :timeout="2000" class="text-white">
       {{ errorMessage.message }}
     </v-snackbar>
-  </form>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -9,6 +9,7 @@
 
 <script setup lang="ts">
 useHead({
+  htmlAttrs: { lang: 'en' },
   title: 'Sri Trang - Simple Chat Application',
   meta: [{ name: 'description', content: 'Simple chat message' }],
 })
