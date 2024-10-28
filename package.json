@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage true --reporter=json --reporter=default",
     "test:clear": "vitest --clear"
   },
   "dependencies": {
