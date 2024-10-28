@@ -1,6 +1,8 @@
 name: 'Test'
 on:
-  pull_request:
+  push: # Trigger the workflow on push
+    branches: # Specify branches to trigger on
+      - main
   workflow_dispatch: # Allow manual triggering
 
 jobs:
@@ -30,7 +32,28 @@ jobs:
       - name: 'Install Deps'
         run: npm install
       - name: 'Test'
-        run: npx vitest --coverage.enabled true
-      - name: 'Report Coverage'
-        if: always()
-        uses: davelosert/vitest-coverage-report-action@v2
+        run: npx vitest --coverage.enabled true --reporter=json-summary
+      - name: Vitest Coverage Report
+        # You may pin to the exact commit or the version.
+        # uses: davelosert/vitest-coverage-report-action@65846c957a86d94dcdfc49195da0059476cebb3f
+        uses: davelosert/vitest-coverage-report-action@v2.5.0
+        with:
+          # A github access token with permissions to write to issues. Uses secrets.GITHUB_TOKEN by default.
+          github-token: # optional, default is ${{ github.token }}
+          # The path to the vite config file. By default, looks for paths by the pattern "vite[st].config.{t|mt|ct|j|mj|cj}s".
+          vite-config-path: # optional
+          # The path to the json summary file. Uses "coverage/coverage-summary.json" by default.
+          json-summary-path: # optional, default is coverage/coverage-summary.json
+          # The path to the json summary file of the previous run to get trend indicators.
+          json-summary-compare-path: # optional
+          # The path to the json final file. Uses "coverage/coverage-final.json" by default.
+          json-final-path: # optional, default is coverage/coverage-final.json
+          # How to show summary for files coverage. Uses "changes" by default.
+          file-coverage-mode: # optional, default is changes
+          # Custom working directory
+          working-directory: # optional, default is ./
+          # The name of the coverage report. Can be used to execute this action multiple times.
+          name: # optional, default is
+          # An optional, user-defined pull request number.
+          pr-number: # optional, default is
+
