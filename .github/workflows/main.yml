@@ -1,35 +1,36 @@
 name: 'Test'
-on: 
+on:
   pull_request:
+  workflow_dispatch: # Allow manual triggering
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18, 20]  # Add more versions as needed
+        node-version: [18, 20] # Add more versions as needed
 
     permissions:
       contents: read
       pull-requests: write
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Cache Node Modules
-      uses: actions/cache@v3
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - name: 'Install Node'
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: 'Install Deps'
-      run: npm install
-    - name: 'Test'
-      run: npx vitest --coverage.enabled true
-    - name: 'Report Coverage'
-      if: always() 
-      uses: davelosert/vitest-coverage-report-action@v2
+      - uses: actions/checkout@v4
+      - name: Cache Node Modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: 'Install Node'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: 'Install Deps'
+        run: npm install
+      - name: 'Test'
+        run: npx vitest --coverage.enabled true
+      - name: 'Report Coverage'
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2
