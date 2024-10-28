@@ -32,7 +32,7 @@ jobs:
       - name: 'Install Deps'
         run: npm install
       - name: 'Test'
-        run: npx vitest --coverage.enabled true --reporter=json-summary
+        run: npx vitest --coverage.enabled true
       - name: Vitest Coverage Report
         # You may pin to the exact commit or the version.
         # uses: davelosert/vitest-coverage-report-action@65846c957a86d94dcdfc49195da0059476cebb3f
