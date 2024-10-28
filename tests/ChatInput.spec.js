@@ -9,6 +9,11 @@ describe('ChatInput.vue', () => {
   })
 
   test('ChatInput send message successfully', async () => {
+    const clickMock = vi.fn()
+    vi.spyOn(document, 'querySelector').mockReturnValue({
+      click: clickMock,
+    })
+
     const wrapper = mount(ChatInput, {
       ...globalEnvironment,
       props: {
@@ -20,10 +25,9 @@ describe('ChatInput.vue', () => {
       Promise.resolve({
         status: 204,
         ok: true,
-        json: () => Promise.resolve({ message: 'Hello world', sender: 'User1' }),
+        json: () => Promise.resolve({}),
       })
     )
-
     const input = wrapper.find('input[name="chatMessage"]')
     await input.setValue('Hello world')
     await wrapper.find('button').trigger('click')
@@ -35,12 +39,19 @@ describe('ChatInput.vue', () => {
       sender: 'User1',
     })
 
+    expect(clickMock).toHaveBeenCalled()
+
     const emitted = wrapper.emitted('send-message')
     expect(emitted).toHaveLength(1)
     expect(emitted[0]).toEqual([{ sender: 'User1', message: 'Hello world' }])
   })
 
   test('ChatInput send message unsuccessfully', async () => {
+    const clickMock = vi.fn()
+    vi.spyOn(document, 'querySelector').mockReturnValue({
+      click: clickMock,
+    })
+
     const wrapper = mount(ChatInput, {
       ...globalEnvironment,
       props: {
@@ -61,6 +72,7 @@ describe('ChatInput.vue', () => {
     await wrapper.find('button').trigger('click')
 
     expect(fetch).toHaveBeenCalledTimes(1)
+    expect(clickMock).toHaveBeenCalled()
 
     const emitted = wrapper.emitted('send-message')
     expect(emitted).toHaveLength(1)
@@ -69,6 +81,11 @@ describe('ChatInput.vue', () => {
 
   test('ChatInput send message to ChatGPT unsuccessfully', async () => {
     // Setup
+    const clickMock = vi.fn()
+    vi.spyOn(document, 'querySelector').mockReturnValue({
+      click: clickMock,
+    })
+
     const wrapper = mount(ChatInput, {
       ...globalEnvironment,
       props: {
@@ -92,6 +109,7 @@ describe('ChatInput.vue', () => {
     await wrapper.find('button').trigger('click')
 
     expect(fetch).toHaveBeenCalledTimes(1)
+    expect(clickMock).toHaveBeenCalled()
 
     // Expect emit
     const emitted = wrapper.emitted('send-message')

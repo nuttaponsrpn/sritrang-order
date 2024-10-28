@@ -60,8 +60,10 @@ const model = ref<ChatModel>('Default')
 const newMessage = ref('')
 const errorMessage = reactive({ error: false, message: '' })
 
-onMounted(async () => {
+onMounted(() => {
   const messageElem = document.querySelector('input[name="chatMessage"]') as HTMLInputElement
+
+  if (!messageElem) return
   messageElem.click()
 })
 
