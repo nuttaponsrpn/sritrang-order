@@ -21,6 +21,7 @@
       density="compact"
       placeholder="Type a message..."
       variant="outlined"
+      autocomplete="off"
       @keyup.enter="sendMessage"
     />
     <v-btn
