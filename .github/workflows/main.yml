@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18, 20] # Add more versions as needed
+        node-version: [20] # Add more versions as needed
 
     permissions:
       contents: read
